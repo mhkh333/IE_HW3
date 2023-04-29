@@ -1,16 +1,21 @@
 //hi server
-
+const dotenv = require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 
 const dbConfig = require('./config/db.config.js');
 const {StudentModel} = require("./models/student.js");
+const {OstadModel} = require("./models/student");
 
 const app = express();
 
-// app.use(express.urlencoded({ extended: true }));
-// aspp.use('/users', userRoutes);
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+app.use('/', userRoutes);
+
+// app.use('/Professors',userRoutes);
 
 console.log(process.env.ENV_KEY)
 main().then(() => {
@@ -32,11 +37,30 @@ const newProf = new StudentModel({
     fieldOfStudy: "studentEntity.getFieldOfStudy()",
 })
 
+const newProff = new OstadModel({
+    firstName: "firstname",
+    lastName: "",
+    idNumber: "",
+    password: "",
+    email: "studentEntity.getEmail()",
+    phone: "studentEntity.getPhone()",
+    faculty: "studentEntity.getFaculty()",
+    fieldOfStudy: "studentEntity.getFieldOfStudy()",
+    rank: 'high'
+})
+
 newProf.save().then((stud) => {
     console.log("inserted")
 }).catch(err => {
     console.log(err)
 })
+newProff.save().then((stud) => {
+    console.log("insertedd")
+}).catch(err => {
+    console.log(err)
+})
+
+
 
 // StudentModel
 
