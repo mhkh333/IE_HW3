@@ -6,14 +6,16 @@ const userRoutes = require('./routes/userRoutes');
 
 const dbConfig = require('./config/db.config.js');
 const {StudentModel} = require("./models/student.js");
-const {OstadModel} = require("./models/student");
+const {OstadModel, ModirITModel, MosavvabModel, TermiModel} = require("./models/student");
 
 const app = express();
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+app.use('/admin')
 app.use('/', userRoutes);
+
 
 // app.use('/Professors',userRoutes);
 
@@ -35,30 +37,48 @@ const newProf = new StudentModel({
     mean: 18,
     faculty: "studentEntity.getFaculty()",
     fieldOfStudy: "studentEntity.getFieldOfStudy()",
-})
+});
 
-const newProff = new OstadModel({
+const newProff = new ModirITModel({
     firstName: "firstname",
     lastName: "",
     idNumber: "",
     password: "",
     email: "studentEntity.getEmail()",
-    phone: "studentEntity.getPhone()",
-    faculty: "studentEntity.getFaculty()",
-    fieldOfStudy: "studentEntity.getFieldOfStudy()",
-    rank: 'high'
-})
+    phone: "studentEntity.getPhone()"
+});
 
-newProf.save().then((stud) => {
-    console.log("inserted")
-}).catch(err => {
-    console.log(err)
-})
-newProff.save().then((stud) => {
-    console.log("insertedd")
-}).catch(err => {
-    console.log(err)
-})
+const newMossavab = new MosavvabModel({
+    name: 'math2',
+    pre: 'math1',
+    ham: [],
+    vahed: 3
+});
+
+const newTermi = new TermiModel({
+    name: 'math2',
+    pre: 'math1',
+    ham: [],
+    vahed: 3,
+    time_class: '',
+    exam_time: '',
+    exam_place: 'iran',
+    ostad: 'akbari',
+    capacity: 33,
+    term: ''
+});
+
+
+// newTermi.save().then((stud) => {
+//     console.log("inserted")
+// }).catch(err => {
+//     console.log(err)
+// })
+// newMossavab.save().then(() => {
+//     console.log("insertedd")
+// }).catch(err => {
+//     console.log(err)
+// })
 
 
 
