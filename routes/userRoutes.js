@@ -19,7 +19,7 @@ router.get('/courses', userController.getCourses);
 
 ////////Admin
 
-router.post('/admin/Professor', userController.postAdmProf);
-
+// router.post('/admin/Professor', userController.postAdmProf);
+router.get('/admin/Professors', userController.getAdminProfessors);
 
 module.exports = router;

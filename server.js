@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
+const {verifyToken, generateToken} = require('./config/auth');
 
 const dbConfig = require('./config/db.config.js');
 const {StudentModel} = require("./models/student.js");
@@ -13,7 +14,10 @@ const app = express();
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
-app.use('/admin')
+
+
+
+// app.use('/admin')
 app.use('/', userRoutes);
 
 

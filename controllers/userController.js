@@ -71,6 +71,14 @@ exports.getCourses = async (req, res) => {
 
 ////// Modire Amuzesh END
 
-exports.postAdmProf
+// exports.postAdmProf
 
+exports.getAdminProfessors = async (req, res) => {
+    try{
+        const students = await OstadModel.find({});
+        res.status(200).json(students);
+    }catch (err){
+        res.status(500).json({message: err.message});
+    }
+}
 
