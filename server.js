@@ -29,6 +29,8 @@ main().then(() => {
     }
 ).catch(err => console.log(err));
 
+
+
 const newProf = new StudentModel({
     firstName: "firstname",
     lastName: "",
