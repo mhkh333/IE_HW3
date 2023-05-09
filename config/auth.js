@@ -26,15 +26,32 @@ const getProtectedData = async () => {
 };
 
 isAdmin = (req, res, next) => {
-    ModirITModel.findById(req.userId).exec((err, user) => {
-        if(err){
-            res.status(500).send({message: err});
-
+    ModirITModel.findById(req.userId).exec().then(admin => {
+        if (!admin) {
+            res.status(404).send({message: 'not found this admin'});
+        } else {
+            res.status(200);
+            next();
         }
+    }).catch(err => {
+        console.error(err);
+    });
 
 
-
-    })
+    //     (err, user) => {
+    //     if (err) {
+    //         res.status(500).send({message: err});
+    //     }else{
+    //         if(user.role_id === 0){
+    //             next();
+    //         }else{
+    //             res.status(401).send({message: 'Who are u???'});
+    //         }
+    //
+    //     }
+    //
+    //
+    // })
 }
 
 
@@ -49,7 +66,7 @@ function verifyToken(req, res, next) {
 
     if (!authHeader) {
 
-        return res.status(401).json({ message: 'Authorization header missing' });
+        return res.status(401).json({message: 'Authorization header missing'});
     }
     // const token = authHeader.split(' ')[1];
     token = authHeader;
@@ -63,14 +80,15 @@ function verifyToken(req, res, next) {
             return res.status(500).send({message: 'Failed to authenticate token'});
         }
         req.userId = decoded.id;
+        req.role_id = decoded.role_id;
         next();
     });
 }
 
-function generateToken(user) {
+function generateToken(user, role_id) {
 
 
-    const payload = {id: user.id, };
+    const payload = {id: user.id, role_id: role_id};
     return jwt.sign(payload, secretKey, {expiresIn: '100000d'}, (error, token) => {
         if (error) {
             console.error(error);
