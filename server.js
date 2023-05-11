@@ -32,7 +32,7 @@ main().then(() => {
 
 
 const newProf = new StudentModel({
-    firstName: "firstname",
+    firstName: "aliali",
     lastName: "",
     idNumber: "",
     password: "",
@@ -58,7 +58,9 @@ const newMossavab = new MosavvabModel({
     name: 'math2',
     pre: 'math1',
     ham: [],
-    vahed: 3
+    vahed: 3,
+    faculty: 'Math',
+    released: 'YES'
 });
 
 const newTermi = new TermiModel({
@@ -66,6 +68,8 @@ const newTermi = new TermiModel({
     pre: 'math1',
     ham: [],
     vahed: 3,
+    faculty: 'Math',
+    released: 'NO',
     time_class: '',
     exam_time: '',
     exam_place: 'iran',
@@ -75,7 +79,7 @@ const newTermi = new TermiModel({
 });
 
 
-// newTermi.save().then((stud) => {
+// newProf.save().then((stud) => {
 //     console.log("inserted")
 // }).catch(err => {
 //     console.log(err)

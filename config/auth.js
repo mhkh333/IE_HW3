@@ -1,74 +1,114 @@
 const jwt = require('jsonwebtoken');
 const {secretKey} = require('./config');
-const {StudentModel} = require("../models/student");
+const {StudentModel, ModirAmuzModel} = require("../models/student");
 const {OstadModel, ModirITModel, MosavvabModel, TermiModel} = require("../models/student");
 
-const verifySignUp = {
 
-    verifyToken
-};
-
-const getToken = async () => {
-    const response = await fetch('/login');
-    const data = await response.json();
-    return data.token;
-};
-
-const getProtectedData = async () => {
-    const token = await getToken();
-    const response = await fetch('/admin/Professors', {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    });
-    const data = await response.json();
-    console.log(data);
-};
+isStuORMod = (req, res, next) => {
+    console.log(321);
+    if (req.role_id === 2) {
+        StudentModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                req.faculty = admin.faculty;
+                console.log(req.faculty)
+                req.role_id = 2;
+                res.status(200);
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    } else if (req.role_id === 1) {
+        ModirAmuzModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                req.faculty = admin.faculty;
+                res.status(200);
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    } else if (req.role_id === 3) {
+        OstadModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                req.faculty = admin.faculty;
+                res.status(200);
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    } else {
+        res.status(404).send({message: 'who r u?'});
+    }
+}
 
 isAdmin = (req, res, next) => {
-    ModirITModel.findById(req.userId).exec().then(admin => {
-        if (!admin) {
-            res.status(404).send({message: 'not found this admin'});
-        } else {
-            res.status(200);
-            next();
-        }
-    }).catch(err => {
-        console.error(err);
-    });
+    if (req.role_id === 0)
+        ModirITModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                res.status(200);
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    else {
+        res.status(404).send({message: 'who r u'});
+    }
+}
+isStudent = (req, res, next) => {
+    if (req.role_id === 2)
+        StudentModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                res.status(200);
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    else {
+        res.status(404).send({message: 'who r u is student'});
+    }
+}
 
-
-    //     (err, user) => {
-    //     if (err) {
-    //         res.status(500).send({message: err});
-    //     }else{
-    //         if(user.role_id === 0){
-    //             next();
-    //         }else{
-    //             res.status(401).send({message: 'Who are u???'});
-    //         }
-    //
-    //     }
-    //
-    //
-    // })
+isAmuz = (req, res, next) => {
+    if (req.role_id === 1)
+        ModirAmuzModel.findById(req.userId).exec().then(admin => {
+            if (!admin) {
+                res.status(404).send({message: 'not found this admin'});
+            } else {
+                res.status(200);
+                req.faculty = admin.faculty;
+                next();
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    else {
+        res.status(404).send({message: 'who r u is student'});
+    }
 }
 
 
 function verifyToken(req, res, next) {
-    /////////////////////////////////////////shak bar asar
-    // var ss = req.headers.authorization.split(' ');
-    // const token = ss[1];
 
-    // console.log(req.headers.authorization)
-    // const token = req.body.token;
+    console.log(123)
     const authHeader = req.headers['test'];
 
     if (!authHeader) {
-
         return res.status(401).json({message: 'Authorization header missing'});
     }
-    // const token = authHeader.split(' ')[1];
     token = authHeader;
 
     if (!token) {
@@ -81,13 +121,12 @@ function verifyToken(req, res, next) {
         }
         req.userId = decoded.id;
         req.role_id = decoded.role_id;
+        console.log('role_id in verifyToken is = ', req.role_id);
         next();
     });
 }
 
 function generateToken(user, role_id) {
-
-
     const payload = {id: user.id, role_id: role_id};
     return jwt.sign(payload, secretKey, {expiresIn: '100000d'}, (error, token) => {
         if (error) {
@@ -95,13 +134,16 @@ function generateToken(user, role_id) {
         } else {
             console.log(token);
         }
-
-
     });
 }
+
+
 
 module.exports = {
     verifyToken,
     generateToken,
-    isAdmin
+    isAdmin,
+    isStuORMod,
+    isStudent,
+    isAmuz
 };

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const authJwt = require("../config/auth");
-const {ModirITModel} = require("../models/student");
+const {ModirITModel, StudentModel, ModirAmuzModel, OstadModel} = require("../models/student");
 const {generateToken} = require("../config/auth");
 
 
@@ -17,24 +17,6 @@ module.exports = function (app) {
 }
 
 
-/// Login
-// router.post('/login', );
-
-
-/////// Modire Amuzesh
-router.get('/students', userController.getStudents);
-router.get('/student/:id', userController.getStudentID);
-// router.post('/', userController.createUser);
-
-router.get('/Professors', [authJwt.verifyToken], userController.getOstads);
-router.get('/Professor/:id', userController.getProfID);
-
-
-router.get('/courses', userController.getCourses);
-
-
-///// Modire amuzesh END
-
 
 ////////Admin
 var ssToken;
@@ -47,28 +29,40 @@ router.post('/login', async (req, res, next) => {
             role_id = 0;
         } else if (email.includes('student')) {
             role_id = 2;
+            console.log('we have an student email');
         } else if (email.includes('ostad')) {
             role_id = 3;
         } else if (email.includes('modireAmuzesh')) {
             role_id = 1;
         }
-        const user = await ModirITModel.findOne({email});
-        if (!user || user.password !== password) {
-            return res.status(401).send({message: 'Invalid email or password'});
+        var user;
+        if (role_id === 0) {
+            user = await ModirITModel.findOne({email});
+            if (!user || user.password !== password) {
+                return res.status(401).send({message: 'Invalid email or password'});
+            }
+        } else if (role_id === 1) {
+            user = await ModirAmuzModel.findOne({email});
+            if (!user || user.password !== password) {
+                return res.status(401).send({message: 'Invalid email or password'});
+            }
+        } else if (role_id === 2) {
+            user = await StudentModel.findOne({email});
+            if (!user || user.password !== password) {
+                return res.status(401).send({message: 'Invalid email or password'});
+            }
+        } else if (role_id === 3) {
+            user = await OstadModel.findOne({email});
+            if (!user || user.password !== password) {
+                return res.status(401).send({message: 'Invalid email or password'});
+            }
         }
+        console.log(user.email)
         const token = generateToken(user, role_id);
         // res.token = token;
         console.log('generfated token is:');
         ssToken = token;
-        ///////////////////////////
-        // await fetch('http://localhost:3000/admin/Professors', {
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //     }
-        // });
-        ///////////////////////////////////
-        // res.headers.test = token;
-        req.headers.authorization = token;
+
         res.send({token});
 
         // next();
@@ -78,20 +72,40 @@ router.post('/login', async (req, res, next) => {
     }
 });
 
+
 //aAdmin
 // router.post('/admin/Professor', userController.postAdmProf);
 router.get('/admin/Professor/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.getProfID);
 router.get('/admin/Professors', [authJwt.verifyToken, authJwt.isAdmin], userController.getAdminProfessors);
 router.get('/admin/student/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.getStudentID);
 router.get('/admin/students', [authJwt.verifyToken, authJwt.isAdmin], userController.getStudents);
+router.get('/admin/manager/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.getManagerID);
+router.get('/admin/managers', [authJwt.verifyToken, authJwt.isAdmin], userController.getManagers);
 
 router.post('/admin/Professor', [authJwt.verifyToken, authJwt.isAdmin], userController.postAdminProf);
 router.post('/admin/student', [authJwt.verifyToken, authJwt.isAdmin], userController.postAdminStudent);
+router.post('/admin/manager', [authJwt.verifyToken, authJwt.isAdmin], userController.postAdminManager);
 
 router.put('/admin/Professor/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.putAdminProf);
 router.put('/admin/student/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.putAdminStudent);
+router.put('/admin/manager/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.putAdminManager);
 
 router.delete('/admin/Professor/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.deleteAdminProf);
 router.delete('/admin/student/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.deleteAdminStudent);
+router.delete('/admin/manager/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.deleteAdminManager);
+
+
+//modire amuzesh && student and even Ostad
+router.get('/courses', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCourses);
+router.get('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCourseId);
+
+router.get('/students', [authJwt.verifyToken, authJwt.isAmuz], userController.getStudents);
+router.get('/student/:id',  [authJwt.verifyToken, authJwt.isAmuz], userController.getStudentID);
+
+router.post('/course', [authJwt.verifyToken, authJwt.isStuORMod], userController.postCourse);
+
+router.put('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putCourse);
+
+router.delete('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteCourse);
 
 module.exports = router;

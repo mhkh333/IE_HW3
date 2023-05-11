@@ -122,7 +122,9 @@ const MosavvabSchema = new Schema({
     name: {type: String},
     pre: {type: [String]},
     ham: {type: [String]},
-    vahed: {type: Number}
+    vahed: {type: Number},
+    faculty: {type: String},
+    released: {type: String}
 });
 
 const TermiSchema = new Schema({
@@ -130,6 +132,8 @@ const TermiSchema = new Schema({
     pre: {type: [String]},
     ham: {type: [String]},
     vahed: {type: Number},
+    faculty: {type: String},
+    released: {type: String},
     time_class: {type: Date},
     exam_time: {type: Date},
     exam_place: {type: String},
