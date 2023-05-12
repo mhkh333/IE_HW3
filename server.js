@@ -13,8 +13,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
-
+app.use(express.urlencoded({extended: true}));
 
 
 // app.use('/admin')
@@ -28,7 +27,6 @@ main().then(() => {
         console.log("connected to mongodb")
     }
 ).catch(err => console.log(err));
-
 
 
 const newProf = new StudentModel({
@@ -78,7 +76,7 @@ const newTermi = new TermiModel({
     term: ''
 });
 
-
+//
 // newProf.save().then((stud) => {
 //     console.log("inserted")
 // }).catch(err => {
@@ -91,13 +89,11 @@ const newTermi = new TermiModel({
 // })
 
 
-
 // StudentModel
 
 async function main() {
-    await mongoose.connect('mongodb://0.0.0.0:27017/tamrin2');
-
+    await mongoose.connect(process.env.MONGO_DB_URL || 'mongodb://0.0.0.0:27017/tamrin2');
 }
 
-app.listen(3000, () => console.log('Server started'))
+app.listen(process.env.ENV_KEY || 3000, () => console.log('Server started'))
 

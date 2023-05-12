@@ -159,7 +159,4 @@ module.exports = {
     TermiModel: TermiModel
 }
 
-//
-// module.exports = {
-//     OstadModel: OstadModel
-// }
+

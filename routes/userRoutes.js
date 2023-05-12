@@ -17,14 +17,12 @@ module.exports = function (app) {
 }
 
 
-
-////////Admin
-var ssToken;
+let ssToken;
 
 router.post('/login', async (req, res, next) => {
     try {
         const {email, password} = req.body;
-        var role_id; // 0 = modireIt, 1 = modireAmuzesh, 2 = student, 3 = ostad
+        let role_id; // 0 = modireIt, 1 = modireAmuzesh, 2 = student, 3 = ostad
         if (email.includes('modireIt')) {
             role_id = 0;
         } else if (email.includes('student')) {
@@ -110,7 +108,8 @@ router.put('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userControl
 
 router.delete('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteCourse);
 
-
 router.put('/student/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putStuStu);
+
+router.put('/Professor/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putProPro);
 
 module.exports = router;

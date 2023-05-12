@@ -24,6 +24,8 @@ exports.getStudents = async (req, res) => {
         } catch (err) {
             res.status(500).json({message: err.message});
         }
+    } else {
+        res.status(403).json({message: 'forbidden'});
     }
 };
 
@@ -43,7 +45,7 @@ exports.getStudentID = async (req, res) => {
             res.status(500).json({message: err.message});
         }
     } else {
-        res.status(500);
+        res.status(403);
     }
 };
 
@@ -94,7 +96,7 @@ exports.getCourses = async (req, res) => {
             res.status(500).json({message: err.message});
         }
     } else {
-        res.status(400).json({message: 'who r u???????'});
+        res.status(403).json({message: 'who r u???????'});
     }
 }
 
@@ -134,13 +136,12 @@ exports.getCourseId = async (req, res) => {
             res.status(500).json({message: err.message});
         }
     } else {
-        res.status(400).json({message: 'who r u???????'});
+        res.status(403).json({message: 'who r u???????'});
     }
 }
 
 ////// Modire Amuzesh END
 
-// exports.postAdmProf
 exports.getProfID = async (req, res) => {
     if (req.role_id === 0)
         try {
@@ -217,7 +218,7 @@ exports.postAdminProf = async (req, res) => {
 
         await newProf.save().then((stud) => {
             console.log("inserted ostad");
-            res.status(200).json(newProf);
+            res.status(201).json(newProf);
             // return;
         }).catch(err => {
             console.log(err);
@@ -262,7 +263,7 @@ exports.postAdminStudent = async (req, res) => {
 
         await newProf.save().then((stud) => {
             console.log("inserted student");
-            res.status(200).json(newProf);
+            res.status(201).json(newProf);
             // return;
         }).catch(err => {
             console.log(err);
@@ -270,9 +271,9 @@ exports.postAdminStudent = async (req, res) => {
 
     } catch (err) {
         res.status(500).json({message: err.message});
-
     }
 }
+
 exports.postAdminManager = async (req, res) => {
     try {
         const {firstName, lastName, idNumber, password, email, phone, faculty} = req.body;
@@ -287,15 +288,14 @@ exports.postAdminManager = async (req, res) => {
         });
         await newProf.save().then((stud) => {
             console.log("inserted modireAmuzesh");
-            res.status(200).json(newProf);
+            res.status(201).json(newProf);
             // return;
         }).catch(err => {
             console.log(err);
-        })
+        });
 
     } catch (err) {
         res.status(500).json({message: err.message});
-
     }
 }
 
@@ -333,7 +333,7 @@ exports.postCourse = async (req, res) => {
                 });
                 await newProf.save().then((stud) => {
                     console.log("inserted termy");
-                    res.status(200).json(newProf);
+                    res.status(201).json(newProf);
                     // return;
                 }).catch(err => {
                     console.log(err);
@@ -356,11 +356,8 @@ exports.postCourse = async (req, res) => {
                     console.log(err);
                 });
             }
-
-
         } catch (err) {
             res.status(500).json({message: err.message});
-
         }
 }
 
@@ -391,6 +388,9 @@ exports.putAdminStudent = async (req, res) => {
         const ostad = await StudentModel.findOneAndUpdate(
             {idNumber: req.params.id}, req.body, {new: true}
         );
+        if(!ostad){
+            return res.status(404).json({message: 'not found'});
+        }
         res.send(ostad).json;
     } catch (err) {
         res.status(500).json({message: err.message});
@@ -399,17 +399,31 @@ exports.putAdminStudent = async (req, res) => {
 
 exports.putStuStu = async (req, res) => {
     try {
-        if (req.email == req.body.email && req.password == req.body.password) {
-            // const first =
-            const filter = { password: req.body.password, email: req.body.email, phone: req.body.phone };
+        if (/*req.email == req.body.email && req.password == req.body.password && req.body.email && req.body.password*/ req.params.id === req.userId) {
+            const filter = {password: req.body.password, email: req.body.email, phone: req.body.phone};
             const stu = await StudentModel.findOneAndUpdate(
-                {idNumber: req.params.id}, filter, {new: true}
+                {_id: req.params.id}, filter, {new: true}
             );
             res.send(stu).json;
         } else {
-            res.status(400).json({message: 'password or email is not correct'});
+            res.status(401).json({message: 'password or email is not correct'});
         }
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+}
 
+exports.putProPro = async (req, res) => {
+    try {
+        if (req.params.id === req.userId) {
+            const filter = {password: req.body.password, email: req.body.email, phone: req.body.phone};
+            const stu = await OstadModel.findOneAndUpdate(
+                {_id: req.params.id}, filter, {new: true}
+            );
+            res.send(stu).json;
+        } else {
+            res.status(401).json({message: 'password or email is not correct'});
+        }
     } catch (err) {
         res.status(500).json({message: err.message});
     }
@@ -516,5 +530,4 @@ exports.deleteAdminManager = async (req, res) => {
     }
 }
 
-// exports.getProf
 

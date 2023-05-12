@@ -5,8 +5,7 @@ const {OstadModel, ModirITModel, MosavvabModel, TermiModel} = require("../models
 
 
 isStuORMod = (req, res, next) => {
-    console.log(321);
-    if (req.role_id === 2) {
+    if (req.role_id === 2 ) {
         StudentModel.findById(req.userId).exec().then(admin => {
             if (!admin) {
                 res.status(404).send({message: 'not found this admin'});
@@ -34,7 +33,7 @@ isStuORMod = (req, res, next) => {
         }).catch(err => {
             console.error(err);
         });
-    } else if (req.role_id === 3) {
+    } else if (req.role_id === 3 ) {
         OstadModel.findById(req.userId).exec().then(admin => {
             if (!admin) {
                 res.status(404).send({message: 'not found this admin'});
@@ -47,7 +46,7 @@ isStuORMod = (req, res, next) => {
             console.error(err);
         });
     } else {
-        res.status(404).send({message: 'who r u?'});
+        res.status(403).send({message: 'who r u?'});
     }
 }
 
@@ -64,7 +63,7 @@ isAdmin = (req, res, next) => {
             console.error(err);
         });
     else {
-        res.status(404).send({message: 'who r u'});
+        res.status(403).send({message: 'who r u'});
     }
 }
 isStudent = (req, res, next) => {
@@ -80,7 +79,7 @@ isStudent = (req, res, next) => {
             console.error(err);
         });
     else {
-        res.status(404).send({message: 'who r u is student'});
+        res.status(403).send({message: 'who r u is student'});
     }
 }
 
@@ -98,14 +97,13 @@ isAmuz = (req, res, next) => {
             console.error(err);
         });
     else {
-        res.status(404).send({message: 'who r u is student'});
+        res.status(403).send({message: 'who r u is student'});
     }
 }
 
 
 function verifyToken(req, res, next) {
 
-    console.log(123)
     const authHeader = req.headers['test'];
 
     if (!authHeader) {
