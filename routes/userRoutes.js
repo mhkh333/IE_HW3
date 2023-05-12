@@ -101,11 +101,16 @@ router.get('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userControl
 
 router.get('/students', [authJwt.verifyToken, authJwt.isAmuz], userController.getStudents);
 router.get('/student/:id',  [authJwt.verifyToken, authJwt.isAmuz], userController.getStudentID);
+router.get('/Professors',  [authJwt.verifyToken, authJwt.isAmuz], userController.getAdminProfessors);
+router.get('/Professor/:id',  [authJwt.verifyToken, authJwt.isAmuz], userController.getProfID);
 
 router.post('/course', [authJwt.verifyToken, authJwt.isStuORMod], userController.postCourse);
 
 router.put('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putCourse);
 
 router.delete('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteCourse);
+
+
+router.put('/student/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putStuStu);
 
 module.exports = router;

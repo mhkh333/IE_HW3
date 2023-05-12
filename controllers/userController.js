@@ -35,14 +35,14 @@ exports.getStudentID = async (req, res) => {
         } catch (err) {
             res.status(500).json({message: err.message});
         }
-    else if(req.role_id === 1){
+    else if (req.role_id === 1) {
         try {
-            const student = await StudentModel.findOne({idNumber: req.params.id, faculty:req.faculty});
+            const student = await StudentModel.findOne({idNumber: req.params.id, faculty: req.faculty});
             res.status(200).json(student);
         } catch (err) {
             res.status(500).json({message: err.message});
         }
-    }else{
+    } else {
         res.status(500);
     }
 };
@@ -142,11 +142,22 @@ exports.getCourseId = async (req, res) => {
 
 // exports.postAdmProf
 exports.getProfID = async (req, res) => {
-    try {
-        const Prof = await OstadModel.findOne({idNumber: req.params.id});
-        res.status(200).json(Prof);
-    } catch (err) {
-        res.status(500).json({message: err.message});
+    if (req.role_id === 0)
+        try {
+            const Prof = await OstadModel.findOne({idNumber: req.params.id});
+            res.status(200).json(Prof);
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+    else if (req.role_id === 1) {
+        try {
+            const Prof = await OstadModel.findOne({idNumber: req.params.id, faculty: req.faculty});
+            res.status(200).json(Prof);
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+    } else {
+        res.status(400);
     }
 };
 
@@ -161,11 +172,22 @@ exports.getManagerID = async (req, res) => {
 
 
 exports.getAdminProfessors = async (req, res) => {
-    try {
-        const students = await OstadModel.find({});
-        res.status(200).json(students);
-    } catch (err) {
-        res.status(500).json({message: err.message});
+    if (req.role_id === 0)
+        try {
+            const students = await OstadModel.find({});
+            res.status(200).json(students);
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+    else if (req.role_id === 1) {
+        try {
+            const students = await OstadModel.find({faculty: req.faculty});
+            res.status(200).json(students);
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+    } else {
+        res.status(400);
     }
 }
 
@@ -203,7 +225,6 @@ exports.postAdminProf = async (req, res) => {
 
     } catch (err) {
         res.status(500).json({message: err.message});
-
     }
 }
 
@@ -371,6 +392,24 @@ exports.putAdminStudent = async (req, res) => {
             {idNumber: req.params.id}, req.body, {new: true}
         );
         res.send(ostad).json;
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+}
+
+exports.putStuStu = async (req, res) => {
+    try {
+        if (req.email == req.body.email && req.password == req.body.password) {
+            // const first =
+            const filter = { password: req.body.password, email: req.body.email, phone: req.body.phone };
+            const stu = await StudentModel.findOneAndUpdate(
+                {idNumber: req.params.id}, filter, {new: true}
+            );
+            res.send(stu).json;
+        } else {
+            res.status(400).json({message: 'password or email is not correct'});
+        }
+
     } catch (err) {
         res.status(500).json({message: err.message});
     }

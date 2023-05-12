@@ -12,6 +12,8 @@ isStuORMod = (req, res, next) => {
                 res.status(404).send({message: 'not found this admin'});
             } else {
                 req.faculty = admin.faculty;
+                req.password = admin.password;
+                req.email = admin.email;
                 console.log(req.faculty)
                 req.role_id = 2;
                 res.status(200);
