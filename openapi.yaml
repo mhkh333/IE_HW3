@@ -1,0 +1,426 @@
+openapi: 3.0.3
+info:
+  title: tamrin2_ie
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://localhost:3000
+paths:
+  /login:
+    post:
+      summary: New Request
+      description: New Request
+      operationId: newRequest
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mhkhstudent.com
+                password:
+                  type: string
+                  example: hiel
+            example:
+              email: mhkhstudent.com
+              password: hiel
+      responses:
+        '200':
+          description: ''
+  /student/'98243022':
+    put:
+      summary: http://localhost:3000/student/'98243022'
+      description: http://localhost:3000/student/'98243022'
+      operationId: httpLocalhost3000Student98243022
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4MzgyMjU4MywiZXhwIjoxMDMyMzgyMjU4M30.-4CeYuNjz038uyv0vIvZFG9hB6Dy7_RQeyHVvnUYC7k
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mhkhstudent.com
+                grade:
+                  type: string
+                  example: D
+                password:
+                  type: string
+                  example: hiel
+                phone:
+                  type: string
+                  example: '09354006806'
+            example:
+              email: mhkhstudent.com
+              grade: D
+              password: hiel
+              phone: '09354006806'
+      responses:
+        '200':
+          description: ''
+  /courses:
+    get:
+      summary: http://localhost:3000/courses
+      description: http://localhost:3000/courses
+      operationId: httpLocalhost3000Courses
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4Mzc4OTQxNywiZXhwIjoxMDMyMzc4OTQxN30.X5W8ObCt6N0TlCDLe7T6q_tyFaTrgfkeNU8G1tSKTFk
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: {}
+            example: {}
+      responses:
+        '200':
+          description: ''
+  /admin/Professors:
+    get:
+      summary: http://localhost:3000/admin/Professors
+      description: http://localhost:3000/admin/Professors
+      operationId: httpLocalhost3000AdminProfessors
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYyOTg0MCwiZXhwIjoxMDMyMzYyOTg0MH0.jcqUtHk9fKnl96KpxQuKT1qKZkzutBbZ6Sej_qYxUl0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: {}
+            example: {}
+      responses:
+        '200':
+          description: ''
+  /admin/Professor:
+    post:
+      summary: http://localhost:3000/admin/Professor
+      description: http://localhost:3000/admin/Professor
+      operationId: httpLocalhost3000AdminProfessor
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: '''ostadhali.com'''
+                faculty:
+                  type: string
+                  example: '''riyazi'''
+                fieldOfStudy:
+                  type: string
+                  example: '''riyaziayt'''
+                firstName:
+                  type: string
+                  example: '''alittt'''
+                idNumber:
+                  type: string
+                  example: '''345534'''
+                lastName:
+                  type: string
+                  example: '''Aladdvi'''
+                password:
+                  type: string
+                  example: '''555685'''
+                phone:
+                  type: string
+                  example: '''220220220'''
+                rank:
+                  type: string
+                  example: '''highe'''
+            example:
+              email: '''ostadhali.com'''
+              faculty: '''riyazi'''
+              fieldOfStudy: '''riyaziayt'''
+              firstName: '''alittt'''
+              idNumber: '''345534'''
+              lastName: '''Aladdvi'''
+              password: '''555685'''
+              phone: '''220220220'''
+              rank: '''highe'''
+      responses:
+        '200':
+          description: ''
+  /admin/Professor/333:
+    put:
+      summary: http://localhost:3000/admin/Professor/333
+      description: http://localhost:3000/admin/Professor/333
+      operationId: httpLocalhost3000AdminProfessor333
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                idNumber:
+                  type: string
+                  example: '333'
+                lastName:
+                  type: string
+                  example: akbari
+            example:
+              idNumber: '333'
+              lastName: akbari
+      responses:
+        '200':
+          description: ''
+  /admin/Professor/645a2d7df62638a9b81a335b:
+    delete:
+      summary: http://localhost:3000/admin/Professor/645a2d7df62638a9b81a335b
+      description: http://localhost:3000/admin/Professor/645a2d7df62638a9b81a335b
+      operationId: httpLocalhost3000AdminProfessor645a2d7df62638a9b81a335b
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: {}
+            example: {}
+      responses:
+        '200':
+          description: ''
+  /admin/student:
+    post:
+      summary: http://localhost:3000/admin/student
+      description: http://localhost:3000/admin/student
+      operationId: httpLocalhost3000AdminStudent
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mhkhstudent.com
+                entranceYear:
+                  type: string
+                  example: '1398'
+                faculty:
+                  type: string
+                  example: '''EC'''
+                fieldOfStudy:
+                  type: string
+                  example: '''EC'''
+                firstName:
+                  type: string
+                  example: '''mohammad'''
+                grade:
+                  type: string
+                  example: '''C'''
+                idNumber:
+                  type: string
+                  example: '''98243022'''
+                lastName:
+                  type: string
+                  example: '''khorrami'''
+                mean:
+                  type: string
+                  example: '16'
+                password:
+                  type: string
+                  example: '''hiel'''
+                phone:
+                  type: string
+                  example: '0921274508'
+            example:
+              email: mhkhstudent.com
+              entranceYear: '1398'
+              faculty: '''EC'''
+              fieldOfStudy: '''EC'''
+              firstName: '''mohammad'''
+              grade: '''C'''
+              idNumber: '''98243022'''
+              lastName: '''khorrami'''
+              mean: '16'
+              password: '''hiel'''
+              phone: '0921274508'
+      responses:
+        '200':
+          description: ''
+  /admin/student/5:
+    put:
+      summary: http://localhost:3000/admin/student/5
+      description: http://localhost:3000/admin/student/5
+      operationId: httpLocalhost3000AdminStudent5
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                idNumber:
+                  type: string
+                  example: '98243022'
+                lastName:
+                  type: string
+                  example: soufiyani
+            example:
+              idNumber: '98243022'
+              lastName: soufiyani
+      responses:
+        '200':
+          description: ''
+  /admin/student/644bd6e6decdaa352545f062:
+    delete:
+      summary: http://localhost:3000/admin/student/644bd6e6decdaa352545f062
+      description: http://localhost:3000/admin/student/644bd6e6decdaa352545f062
+      operationId: httpLocalhost3000AdminStudent644bd6e6decdaa352545f062
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      responses:
+        '200':
+          description: ''
+  /admin/manager/365:
+    get:
+      summary: http://localhost:3000/admin/manager/365
+      description: http://localhost:3000/admin/manager/365
+      operationId: httpLocalhost3000AdminManager365
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      responses:
+        '200':
+          description: ''
+  /course:
+    post:
+      summary: http://localhost:3000/course
+      description: http://localhost:3000/course
+      operationId: httpLocalhost3000Course
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                faculty:
+                  type: string
+                  example: CE
+                ham:
+                  type: string
+                  example: ml
+                name:
+                  type: string
+                  example: dataMining
+                pre:
+                  type: string
+                  example: Amar
+                released:
+                  type: string
+                  example: 'YES'
+                vahed:
+                  type: string
+                  example: '3'
+            example:
+              faculty: CE
+              ham: ml
+              name: dataMining
+              pre: Amar
+              released: 'YES'
+              vahed: '3'
+      responses:
+        '200':
+          description: ''
+  /course/645cd9764fcaebed5f2ab00c:
+    delete:
+      summary: http://localhost:3000/course/645cd9764fcaebed5f2ab00c
+      description: http://localhost:3000/course/645cd9764fcaebed5f2ab00c
+      operationId: httpLocalhost3000Course645cd9764fcaebed5f2ab00c
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNzc3MCwiZXhwIjoxMDMyMzgwNzc3MH0.mgOV0-wVRlNDC0LkQ7M_u6BmpgnqFwoxLX5ZvLbM7cY
+      responses:
+        '200':
+          description: ''
+  /Professor/333:
+    get:
+      summary: http://localhost:3000/Professor/333
+      description: http://localhost:3000/Professor/333
+      operationId: httpLocalhost3000Professor333
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3NWYzNjI1MGQ1MDM0OTk1MmI4MCIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgxMTUwNiwiZXhwIjoxMDMyMzgxMTUwNn0.Y0vrM9plHfz4rHUVP6D42Hn8BR5GxhNM6gcbLw8S8Xo
+      responses:
+        '200':
+          description: ''
+tags: []

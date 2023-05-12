@@ -87,7 +87,7 @@ isAmuz = (req, res, next) => {
     if (req.role_id === 1)
         ModirAmuzModel.findById(req.userId).exec().then(admin => {
             if (!admin) {
-                res.status(404).send({message: 'not found this admin'});
+                res.status(404).send({message: 'not found this'});
             } else {
                 res.status(200);
                 req.faculty = admin.faculty;

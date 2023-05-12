@@ -1,0 +1,1124 @@
+{
+	"info": {
+		"_postman_id": "b706ae3b-8796-4648-9a95-24cbb63d8344",
+		"name": "tamrin2_ie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22382690"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "ostad.getEmail().com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "542",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/student/'98243022'",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4Mzg3MjgyMCwiZXhwIjoxMDMyMzg3MjgyMH0.izo12rj7ozuY9jhDyec_mu_KV7hHiLIkKdAGFUMrUqc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "mhkhstudentsss.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "hiell",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "09212745709",
+							"type": "text"
+						},
+						{
+							"key": "grade",
+							"value": "D",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/student/645a432cafb65756b0b49704",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student",
+						"645a432cafb65756b0b49704"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/courses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4Mzg3NDc0NSwiZXhwIjoxMDMyMzg3NDc0NX0.2695kLPqm7IbRBt-a48YUOMLp9p2KBMsNgPfOeZsy8w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/Professors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYyOTg0MCwiZXhwIjoxMDMyMzYyOTg0MH0.jcqUtHk9fKnl96KpxQuKT1qKZkzutBbZ6Sej_qYxUl0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/Professors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"Professors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/Professor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "'alittt'",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "'Aladdvi'",
+							"type": "text"
+						},
+						{
+							"key": "idNumber",
+							"value": "'345534'",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "'555685'",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "'ostadhali.com'",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "'220220220'",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "'riyazi'",
+							"type": "text"
+						},
+						{
+							"key": "fieldOfStudy",
+							"value": "'riyaziayt'",
+							"type": "text"
+						},
+						{
+							"key": "rank",
+							"value": "'highe'",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/Professor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"Professor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/Professor/333",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYyOTg0MCwiZXhwIjoxMDMyMzYyOTg0MH0.jcqUtHk9fKnl96KpxQuKT1qKZkzutBbZ6Sej_qYxUl0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idNumber",
+							"value": "333",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "akbari",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "asghar",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "852369",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ostadi.gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "09212124",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "Math",
+							"type": "text"
+						},
+						{
+							"key": "fieldOfStudy",
+							"value": "Mathematics",
+							"type": "text"
+						},
+						{
+							"key": "rank",
+							"value": "OstadTamam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/Professor/542",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"Professor",
+						"542"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/Professor/645a2d7df62638a9b81a335b",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/Professor/645a2cf5a49e08ddbb23944b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"Professor",
+						"645a2cf5a49e08ddbb23944b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "'mohammad'",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "'khorrami'",
+							"type": "text"
+						},
+						{
+							"key": "idNumber",
+							"value": "'98243022'",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "'hiel'",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mhkhstudent.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0921274508",
+							"type": "text"
+						},
+						{
+							"key": "grade",
+							"value": "'C'",
+							"type": "text"
+						},
+						{
+							"key": "entranceYear",
+							"value": "1398",
+							"type": "text"
+						},
+						{
+							"key": "mean",
+							"value": "16",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "'EC'",
+							"type": "text"
+						},
+						{
+							"key": "fieldOfStudy",
+							"value": "'EC'",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/student/5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idNumber",
+							"value": "98243022",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "soufiyani",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "mohammad",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "98765423",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "khodamstudent.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "220260260",
+							"type": "text"
+						},
+						{
+							"key": "grade",
+							"value": "S",
+							"type": "text"
+						},
+						{
+							"key": "entranceYear",
+							"value": "1398",
+							"type": "text"
+						},
+						{
+							"key": "mean",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "Math",
+							"type": "text"
+						},
+						{
+							"key": "fieldOfStudy",
+							"value": "ProMath",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/student/'98243022'",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"student",
+						"'98243022'"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/student/644bd6e6decdaa352545f062",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/student/645a4356afb65756b0b4970a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"student",
+						"645a4356afb65756b0b4970a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/manager/365",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/manager/365",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"manager",
+						"365"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/course",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "dataMining",
+							"type": "text"
+						},
+						{
+							"key": "pre",
+							"value": "Amar",
+							"type": "text"
+						},
+						{
+							"key": "ham",
+							"value": "ml",
+							"type": "text"
+						},
+						{
+							"key": "vahed",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "CE",
+							"type": "text"
+						},
+						{
+							"key": "released",
+							"value": "YES",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/course/645cd9764fcaebed5f2ab00c",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNzc3MCwiZXhwIjoxMDMyMzgwNzc3MH0.mgOV0-wVRlNDC0LkQ7M_u6BmpgnqFwoxLX5ZvLbM7cY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/course/645de5d9453ea63709ace949",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"course",
+						"645de5d9453ea63709ace949"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Professor/333",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3NWYzNjI1MGQ1MDM0OTk1MmI4MCIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgxMTUwNiwiZXhwIjoxMDMyMzgxMTUwNn0.Y0vrM9plHfz4rHUVP6D42Hn8BR5GxhNM6gcbLw8S8Xo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/Professor/333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professor",
+						"333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Professor/644bd9af7407e00e49923222",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4MzkwMDMzNSwiZXhwIjoxMDMyMzkwMDMzNX0.1xcwi35YXKi_ooqV1QmiqSq-tJ3_bp9G7CcziS89Ork",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rank",
+							"value": "higher",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "09212745709",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "5422",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "akbariostad.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/Professor/644bd7882048a91b27febefb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professor",
+						"644bd7882048a91b27febefb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/Professor/333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"Professor",
+						"333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/students",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/student/98243022",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/student/98243022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"student",
+						"98243022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/manager",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "gholam",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "farrokhi",
+							"type": "text"
+						},
+						{
+							"key": "idNumber",
+							"value": "5689",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "555565",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "modiremodireAmuzeshSS.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "58965845",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "EC",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/manager",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"manager"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/manager/365",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lastName",
+							"value": "alavian",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "farzani",
+							"type": "text"
+						},
+						{
+							"key": "idNumber",
+							"value": "365",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "modireAmuzeshhalabaham.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "569874",
+							"type": "text"
+						},
+						{
+							"key": "faculty",
+							"value": "Math",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/manager/365",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"manager",
+						"365"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/manager/645c75f36250d50349952b80",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/manager/645c75f36250d50349952b80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"manager",
+						"645c75f36250d50349952b80"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/admin/managers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/managers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"managers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/course/645c54fb8ee976fd5758c70b",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "term",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/course/645c54fb8ee976fd5758c70b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"course",
+						"645c54fb8ee976fd5758c70b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/course/645c54fb8ee976fd5758c70b",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/course/645c54fb8ee976fd5758c70b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"course",
+						"645c54fb8ee976fd5758c70b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/students",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/student/98243022",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/student/98243022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"student",
+						"98243022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Professors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/Professors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professors"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

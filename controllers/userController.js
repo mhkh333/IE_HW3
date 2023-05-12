@@ -366,6 +366,9 @@ exports.putAdminProf = async (req, res) => {
         const ostad = await OstadModel.findOneAndUpdate(
             {idNumber: req.params.id}, req.body, {new: true}
         );
+        if(!ostad){
+            return res.status(404).json({message: 'not found this ostad'});
+        }
         res.send(ostad);
     } catch (err) {
         res.status(500).json({message: err.message});

@@ -9,9 +9,25 @@ const dbConfig = require('./config/db.config.js');
 const {StudentModel} = require("./models/student.js");
 const {OstadModel, ModirITModel, MosavvabModel, TermiModel} = require("./models/student");
 
+const collection = require('./collection/tamrin2_ie.postman_collection.json');
+const {transpile} = require('postman2openapi');
+
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./openapi (1).yaml');
+
+var cors = require('cors')
+
+
+const openapi = transpile(collection);
+
+// console.log(JSON.stringify(openapi, null, 2));
+
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.urlencoded({extended: true}));
 
