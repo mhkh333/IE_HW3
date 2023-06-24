@@ -111,5 +111,5 @@ async function main() {
     await mongoose.connect(process.env.MONGO_DB_URL || 'mongodb://0.0.0.0:27017/tamrin2');
 }
 
-app.listen(process.env.ENV_KEY || 3000, () => console.log('Server started'))
+app.listen(process.env.ENV_KEY || 8085, () => console.log('Server started'))
 
