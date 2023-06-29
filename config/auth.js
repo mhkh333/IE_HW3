@@ -13,6 +13,7 @@ isStuORMod = (req, res, next) => {
                 req.faculty = admin.faculty;
                 req.password = admin.password;
                 req.email = admin.email;
+                req.id = admin.idNumber;
                 console.log(req.faculty)
                 req.role_id = 2;
                 res.status(200);
@@ -39,6 +40,7 @@ isStuORMod = (req, res, next) => {
                 res.status(404).send({message: 'not found this admin'});
             } else {
                 req.faculty = admin.faculty;
+                req.id = admin.idNumber;
                 res.status(200);
                 next();
             }
@@ -127,7 +129,7 @@ function verifyToken(req, res, next) {
 }
 
 function generateToken(user, role_id) {
-    const payload = {id: user.id, role_id: role_id};
+    const payload = {id: user._id, role_id: role_id};
     return jwt.sign(payload, secretKey, {expiresIn: '100000d'}, (error, token) => {
         if (error) {
             console.error(error);

@@ -92,6 +92,9 @@ const newTermi = new TermiModel({
     term: ''
 });
 
+
+// const newTerm = new Term();
+
 //
 // newProf.save().then((stud) => {
 //     console.log("inserted")
