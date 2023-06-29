@@ -111,29 +111,25 @@ router.get('/term/:id/preregistration_courses', [authJwt.verifyToken, authJwt.is
 router.get('/course/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCoursePre);
 router.get('/term/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermReg);
 
-
 router.post('/course', [authJwt.verifyToken, authJwt.isStuORMod], userController.postCourse);
 router.post('/term', [authJwt.verifyToken, authJwt.isStuORMod], userController.postTerm);
-router.post('/term/:id/preregistration', [authJwt.verifyToken, authJwt.isAmuz], userController.postPreRegistration);
-router.post('/course/preregister/:id', [authJwt.verifyToken, authJwt.isStudent], userController.postPreRegister);
+router.post('/term/:id/preregistration', [authJwt.verifyToken, authJwt.isStuORMod], userController.postPreRegistration);
+router.post('/course/preregister/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.postPreRegister);
 
 router.put('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putCourse);
 router.put('/student/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putStuStu);
 router.put('/Professor/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putProPro);
 
-
 router.put('/term/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putTerm);
 
-
 router.delete('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteCourse);
-router.delete('/term/:id', [authJwt.verifyToken, authJwt.isAmuz], userController.deleteTerm);
-router.delete('/course/preregister/:id', [authJwt.verifyToken, authJwt.isStudent], userController.deletePreReg);
-
+router.delete('/term/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteTerm);
+router.delete('/course/preregister/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deletePreReg);
 
 //Agha M farid
-router.delete('/term/:id/preregistration', [authJwt.verifyToken, authJwt.isAmuz], userController.deletepreregistration);
+router.delete('/term/:id/preregistration', [authJwt.verifyToken, authJwt.isStuORMod], userController.deletepreregistration);
 
-router.post('/term/:id/registration', [authJwt.verifyToken, authJwt.isAmuz], userController.postregistrationInTerm);
+router.post('/term/:id/registration', [authJwt.verifyToken, authJwt.isStuORMod], userController.postregistrationInTerm);
 router.post('/course/register/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.postcourseregister);
 
 router.put('/registration/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putregistration);
@@ -142,9 +138,9 @@ router.get('/term/:id/registration_courses', [authJwt.verifyToken, authJwt.isStu
 
 router.get('/term/:id/preregistrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getpreregistrations); // bi dana taghiir ber mana
 
-router.get('/course/:id/preregistrations', [authJwt.verifyToken, authJwt.isAmuz], userController.getcoursepreregistrations);
+router.get('/course/:id/preregistrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getcoursepreregistrations);
 
-router.delete('/term/:id/registration', [authJwt.verifyToken, authJwt.isAmuz], userController.deleteregistration);
+router.delete('/term/:id/registration', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteregistration);
 
 router.delete('/course/register/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.deletecourseregister);
 

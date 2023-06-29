@@ -157,8 +157,7 @@ const TermiSchema = new Schema({
     exam_place: {type: String},
     ostad: {type: String},
     capacity: {type: Number},
-    term: {type: String},
-    preRegis: {type: PreRegisterModel}
+    term: {type: String}
 });
 
 
@@ -169,10 +168,10 @@ const Term = new Schema({
     idNumbers: {
         type: [String]
     },
-    termis:{
+    termis: {
         type: [String]
     },
-    preregis:{
+    preregis: {
         type: [String]
     },
     isNow: {
@@ -184,7 +183,6 @@ const Term = new Schema({
 
 
 });
-
 
 
 const Faculty = new Schema({
@@ -226,7 +224,6 @@ const PreRegister = new Schema({
         type: String
     }
 });
-
 
 
 const StudentModel = mongoose.model('Student', StudentSchema);
