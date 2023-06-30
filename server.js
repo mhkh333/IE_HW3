@@ -21,7 +21,7 @@ var cors = require('cors')
 
 const openapi = transpile(collection);
 
-// console.log(JSON.stringify(openapi, null, 2));
+//console.log(JSON.stringify(openapi, null, 2));
 
 const app = express();
 
@@ -60,14 +60,18 @@ const newProf = new StudentModel({
 });
 
 const newProff = new ModirITModel({
-    firstName: "firstname",
+    firstName: "akbar",
     lastName: "",
     idNumber: "",
-    password: "",
-    email: "studentEntity.getEmail()",
-    phone: "studentEntity.getPhone()"
+    password: "1234",
+    email: "modireIt.getEmail()",
+    phone: "modireIt.getPhone()"
 });
-
+newProff.save().then((stud) => {
+         console.log("inserted")
+     }).catch(err => {
+         console.log(err)
+     });
 const newMossavab = new MosavvabModel({
     name: 'math2',
     pre: 'math1',
@@ -114,5 +118,5 @@ async function main() {
     await mongoose.connect(process.env.MONGO_DB_URL || 'mongodb://0.0.0.0:27017/tamrin2');
 }
 
-app.listen(process.env.ENV_KEY || 3000, () => console.log('Server started'))
+app.listen(process.env.ENV_KEY || 8000, () => console.log('Server started'))
 

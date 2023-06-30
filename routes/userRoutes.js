@@ -23,7 +23,9 @@ let ssToken;
 
 router.post('/login', async (req, res, next) => {
     try {
+        
         const {email, password} = req.body;
+        //console.log(req.body)
         let role_id; // 0 = modireIt, 1 = modireAmuzesh, 2 = student, 3 = ostad
         if (email.includes('modireIt')) {
             role_id = 0;
@@ -57,17 +59,22 @@ router.post('/login', async (req, res, next) => {
                 return res.status(401).send({message: 'Invalid email or password'});
             }
         }
-        console.log(user.email)
-        const token = generateToken(user, role_id);
-        // res.token = token;
+        //console.log(user.email)
+        const tokens = generateToken(user, role_id);
+        res.token = tokens;
         console.log('generfated token is:');
-        ssToken = token;
+        
+        ssToken = {
+            jwttoken:tokens,
+            name:user.firstName
+        }
+        console.log(ssToken)
 
-        res.send({token});
+        res.status(200).json(ssToken);
 
         // next();
     } catch (err) {
-        console.error(err);
+        //console.error(err);
         res.status(500).send({message: 'Failed to authenticate user'});
     }
 });

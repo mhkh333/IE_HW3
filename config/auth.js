@@ -130,13 +130,7 @@ function verifyToken(req, res, next) {
 
 function generateToken(user, role_id) {
     const payload = {id: user._id, role_id: role_id};
-    return jwt.sign(payload, secretKey, {expiresIn: '100000d'}, (error, token) => {
-        if (error) {
-            console.error(error);
-        } else {
-            console.log(token);
-        }
-    });
+    return jwt.sign(payload, secretKey, {expiresIn: '100000d'});
 }
 
 
