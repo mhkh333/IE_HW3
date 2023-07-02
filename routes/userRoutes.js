@@ -66,12 +66,11 @@ router.post('/login', async (req, res, next) => {
         
         ssToken = {
             jwttoken:tokens,
-            name:user.firstName
+            name:user.firstName,
+            role:role_id
         }
         console.log(ssToken)
-
         res.status(200).json(ssToken);
-
         // next();
     } catch (err) {
         //console.error(err);
@@ -118,10 +117,16 @@ router.get('/term/:id/preregistration_courses', [authJwt.verifyToken, authJwt.is
 router.get('/course/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCoursePre);
 router.get('/term/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermReg);
 
+router.get('/term/:id/registration/:idCourse', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermRegCourse);
+
+
+
 router.post('/course', [authJwt.verifyToken, authJwt.isStuORMod], userController.postCourse);
 router.post('/term', [authJwt.verifyToken, authJwt.isStuORMod], userController.postTerm);
 router.post('/term/:id/preregistration', [authJwt.verifyToken, authJwt.isStuORMod], userController.postPreRegistration);
 router.post('/course/preregister/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.postPreRegister);
+
+router.post('/faculty', [authJwt.verifyToken, authJwt.isAdmin], userController.postFaculty);
 
 router.put('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putCourse);
 router.put('/student/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.putStuStu);
@@ -146,6 +151,8 @@ router.get('/term/:id/registration_courses', [authJwt.verifyToken, authJwt.isStu
 router.get('/term/:id/preregistrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getpreregistrations); // bi dana taghiir ber mana
 
 router.get('/course/:id/preregistrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getcoursepreregistrations);
+
+router.get('/term/courses/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermCourses);
 
 router.delete('/term/:id/registration', [authJwt.verifyToken, authJwt.isStuORMod], userController.deleteregistration);
 

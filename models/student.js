@@ -188,6 +188,9 @@ const Term = new Schema({
 const Faculty = new Schema({
     name: {
         type: String
+    },
+    fields: {
+        type: [String]
     }
 });
 

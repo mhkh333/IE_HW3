@@ -47,7 +47,8 @@ isStuORMod = (req, res, next) => {
         }).catch(err => {
             console.error(err);
         });
-    } else {
+    }
+    else {
         res.status(403).send({message: 'who r u?'});
     }
 }

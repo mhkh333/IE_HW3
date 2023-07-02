@@ -7,6 +7,7 @@ const {
     ModirITModel,
     ModirAmuzModel, TermModel, FacultyModel, PreRegisterModel, RegisterModel
 } = require("../models/student");
+const e = require("express");
 
 ///////////////////////// Modire Amuzesh
 exports.getStudents = async (req, res) => {
@@ -222,7 +223,8 @@ exports.getTerms = async (req, res) => {
         try {
             let sos = await OstadModel.findOne({faculty: req.faculty, idNumber: req.id});
             let ssos = sos._id;
-            const terms = await TermModel.findOne({faculty: req.faculty}).find({idNumbers: {$in: [ssos]}});
+            const terms = await TermModel.find({faculty: req.faculty}).find({idNumbers: {$in: [ssos]}});
+            console.log(typeof terms)
             res.status(200).json(terms);
         } catch (err) {
             res.status(500).json({message: err.message});
@@ -290,6 +292,73 @@ exports.getCoursePre = async (req, res) => {
         } catch (err) {
             res.status(500).json({message: err.message});
         }
+    } else {
+        res.status(403).json({message: 'who RU? han?'});
+    }
+
+}
+
+exports.getTermCourses = async (req, res) => {
+    if (req.role_id === 3) {
+        try {
+            let spar = req.params.id;
+            let term = await TermModel.findOne({_id: req.params.id});
+            let ostad = await OstadModel.findOne({idNumber: req.id});
+            let ostadLessons = [...ostad.teachedlessonsId, ...ostad.termlessonsId];
+            const uniqueArr = ostadLessons.filter(element => ostadLessons.indexOf(element) === ostadLessons.lastIndexOf(element));
+            const regis = term.termis;
+            let stus = [];
+            let commonArr = [];
+            let termiCourse;
+            let courses = [];
+
+            for (const element of uniqueArr) {
+                if (regis.indexOf(element) !== -1) {
+                    termiCourse = await TermiModel.findOne({_id: element});
+                    commonArr.push(termiCourse);
+                }
+            }
+
+
+            // await commonArr.forEach(function (item) {
+            //     const reg =await RegisterModel.find({term: req.params.id, termiCourses: {$in: [item]}});
+            //     stus.push(reg);
+            // });
+
+            // for (const element of commonArr) {
+            //     const req = await RegisterModel.find({term: spar, termiCourses: {$in: [element]}});
+            //     stus.push(req);
+            // }
+
+            return res.status(200).json(commonArr);
+
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+    } else {
+        res.status(403).json({message: 'who RU? han?'});
+    }
+
+}
+
+exports.getTermRegCourse = async (req, res) => {
+    if (req.role_id === 3) {
+        try {
+            let stus = [];
+            let stuss = await RegisterModel.find({term: req.params.id, termiCourses: {$in: [req.params.idCourse]}});
+            let esm2;
+            for (const element of stuss) {
+                let esm = element.studentId;
+                esm2 = await StudentModel.findOne({_id: esm});
+                stus.push(esm2.firstName + ' ' + esm2.lastName);
+            }
+
+            return res.status(200).json(stus);
+
+        } catch (err) {
+            res.status(500).json({message: err.message});
+        }
+
     } else {
         res.status(403).json({message: 'who RU? han?'});
     }
@@ -563,11 +632,48 @@ exports.postPreRegistration = async (req, res) => {
     }
 }
 
+exports.postFaculty = async (req, res) => {
+    if (req.role_id === 0) {
+        try {
+            let new_Faculty = new FacultyModel(req.body);
+            console.log("new faculty is  dbkdajkfabjfajbdkjbd naflkkdasmlkdasn sjdaljdjsijSDJOd" + new_Faculty)
+            let ghabl = await FacultyModel.findOne({name: new_Faculty.name});
+
+            console.log("new ghabl ljkdfjkhcahli SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" + ghabl)
+
+            if (ghabl) {
+                const ostad = await FacultyModel.findOneAndUpdate( {name: new_Faculty.name}, req.body, {new: true});
+
+                console.log(ostad);
+                console.log(5545454546464+'??????????')
+                res.status(200).send(ostad).json;
+            } else {
+                console.log(5545454546464+'%%%%%%%%%%%%%%%%%%%%%')
+
+                if (new_Faculty.name === '' || new_Faculty.name === null || new_Faculty.fields === null || new_Faculty.fields === []){
+                    console.log(5545454546464+'><<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>> >>')
+
+                    res.status(404).json({message: 'Invalid data provided'} );
+                } else{
+                    await new_Faculty.save();
+                    console.log(5545454546464+'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM ')
+
+                    console.log("he he is here new fac " + new_Faculty);
+                    return res.status(200).json(new_Faculty);
+                }
+            }
+
+
+        } catch (err) {
+            res.status(500).json({message: 'An error occurred while saving the document.', error: err});
+        }
+    }
+}
+
 exports.postPreRegister = async (req, res) => {
     if (req.role_id === 2) {
         try {
             const id = req.params.id;
-
             try {
                 console.log(req.faculty)
                 const currTerm = await TermModel.findOne({isNow: true, faculty: req.faculty});
@@ -585,7 +691,11 @@ exports.postPreRegister = async (req, res) => {
                     // termis.push(id);
                     return res.status(404).json({message: 'we cannot let you have this you shall not pass'});
                 } else if (index >= 0) {
-                    let pree = new PreRegisterModel({studentId: req.id, termiCourses: req.params.id, term: currTerm._id});
+                    let pree = new PreRegisterModel({
+                        studentId: req.id,
+                        termiCourses: req.params.id,
+                        term: currTerm._id
+                    });
                     pree.save();
                     return res.status(200).json({message: 'course added'});
                 }
@@ -1244,8 +1354,7 @@ exports.deletecourseregister = async (req, res) => {
                     console.log(err)
                 });
                 res.status(200).json({message: `course deleted from registeration successfully. Term:`});
-            }
-            catch (error) {
+            } catch (error) {
                 // If an error occurred during the deletion process, return an error message
                 console.log(error)
                 res.status(500).json({message: 'An error occurred while deleting the document.', error});

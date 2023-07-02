@@ -67,11 +67,11 @@ const newProff = new ModirITModel({
     email: "modireIt.getEmail()",
     phone: "modireIt.getPhone()"
 });
-newProff.save().then((stud) => {
-         console.log("inserted")
-     }).catch(err => {
-         console.log(err)
-     });
+// newProff.save().then((stud) => {
+//          console.log("inserted")
+//      }).catch(err => {
+//          console.log(err)
+//      });
 const newMossavab = new MosavvabModel({
     name: 'math2',
     pre: 'math1',
