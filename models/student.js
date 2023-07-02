@@ -112,6 +112,9 @@ const Modir_AmuzSchema = new Schema({
     },
     faculty: {
         type: String
+    },
+    rank: {
+        type: String
     }
 });
 

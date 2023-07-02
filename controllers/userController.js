@@ -448,13 +448,20 @@ exports.postAdminProf = async (req, res) => {
             termlessonsId
         });
 
-        await newProf.save().then((stud) => {
-            console.log("inserted ostad");
-            res.status(201).json(newProf);
-            // return;
-        }).catch(err => {
-            console.log(err);
-        })
+        let ss = await OstadModel.findOne({idNumber: req.body.idNumber});
+        if (ss) {
+            const ostadsave = await OstadModel.findOneAndUpdate({idNumber: ss.idNumber}, req.body, {new: true});
+            res.status(200).send(ostadsave).json;
+        } else {
+            await newProf.save().then((stud) => {
+                console.log("inserted ostad");
+                res.status(201).json(newProf);
+                // return;
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+
 
     } catch (err) {
         res.status(500).json({message: err.message});
@@ -496,15 +503,19 @@ exports.postAdminStudent = async (req, res) => {
             passcoures
 
         });
-
-        await newProf.save().then((stud) => {
-            console.log("inserted student");
-            res.status(201).json(newProf);
-            // return;
-        }).catch(err => {
-            console.log(err);
-        })
-
+        let ss = await StudentModel.findOne({idNumber: req.body.idNumber});
+        if (ss) {
+            const ostadsave = await StudentModel.findOneAndUpdate({idNumber: ss.idNumber}, req.body, {new: true});
+            res.status(200).send(ostadsave).json;
+        } else {
+            await newProf.save().then((stud) => {
+                console.log("inserted student");
+                res.status(201).json(newProf);
+                // return;
+            }).catch(err => {
+                console.log(err);
+            })
+        }
     } catch (err) {
         res.status(500).json({message: err.message});
     }
@@ -512,7 +523,7 @@ exports.postAdminStudent = async (req, res) => {
 
 exports.postAdminManager = async (req, res) => {
     try {
-        const {firstName, lastName, idNumber, password, email, phone, faculty} = req.body;
+        const {firstName, lastName, idNumber, password, email, phone, faculty, rank} = req.body;
         const newProf = new ModirAmuzModel({
             firstName,
             lastName,
@@ -520,16 +531,22 @@ exports.postAdminManager = async (req, res) => {
             password,
             email,
             phone,
-            faculty
+            faculty,
+            rank
         });
-        await newProf.save().then((stud) => {
-            console.log("inserted modireAmuzesh");
-            res.status(201).json(newProf);
-            // return;
-        }).catch(err => {
-            console.log(err);
-        });
-
+        let ss = await ModirAmuzModel.findOne({idNumber: req.body.idNumber});
+        if (ss) {
+            const ostadsave = await ModirAmuzModel.findOneAndUpdate({idNumber: ss.idNumber}, req.body, {new: true});
+            res.status(200).send(ostadsave).json;
+        } else {
+            await newProf.save().then((stud) => {
+                console.log("inserted modireAmuzesh");
+                res.status(201).json(newProf);
+                // return;
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     } catch (err) {
         res.status(500).json({message: err.message});
     }
@@ -642,21 +659,21 @@ exports.postFaculty = async (req, res) => {
             console.log("new ghabl ljkdfjkhcahli SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" + ghabl)
 
             if (ghabl) {
-                const ostad = await FacultyModel.findOneAndUpdate( {name: new_Faculty.name}, req.body, {new: true});
+                const ostad = await FacultyModel.findOneAndUpdate({name: new_Faculty.name}, req.body, {new: true});
 
                 console.log(ostad);
-                console.log(5545454546464+'??????????')
+                console.log(5545454546464 + '??????????')
                 res.status(200).send(ostad).json;
             } else {
-                console.log(5545454546464+'%%%%%%%%%%%%%%%%%%%%%')
+                console.log(5545454546464 + '%%%%%%%%%%%%%%%%%%%%%')
 
-                if (new_Faculty.name === '' || new_Faculty.name === null || new_Faculty.fields === null || new_Faculty.fields === []){
-                    console.log(5545454546464+'><<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>> >>')
+                if (new_Faculty.name === '' || new_Faculty.name === null || new_Faculty.fields === null || new_Faculty.fields === []) {
+                    console.log(5545454546464 + '><<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>> >>')
 
-                    res.status(404).json({message: 'Invalid data provided'} );
-                } else{
+                    res.status(404).json({message: 'Invalid data provided'});
+                } else {
                     await new_Faculty.save();
-                    console.log(5545454546464+'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM ')
+                    console.log(5545454546464 + 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM ')
 
                     console.log("he he is here new fac " + new_Faculty);
                     return res.status(200).json(new_Faculty);
