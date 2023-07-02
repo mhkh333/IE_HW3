@@ -1,0 +1,1323 @@
+openapi: 3.0.3
+info:
+  title: tamrin2_ie
+  version: 1.0.0
+  contact: { }
+servers:
+  - url: http://localhost:8000
+paths:
+  /login:
+    post:
+      summary: New Request
+      description: New Request
+      operationId: newRequest
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: ostad.getEmail().com
+                password:
+                  type: string
+                  example: "542"
+            example:
+              email: ostad.getEmail().com
+              password: "542"
+      responses:
+        "200":
+          description: ""
+  /student/{_id}:
+    put:
+      summary: http://localhost:3000/student/'98243022'
+      description: http://localhost:3000/student/'98243022'
+      operationId: httpLocalhost3000Student98243022
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4Mzg3MjgyMCwiZXhwIjoxMDMyMzg3MjgyMH0.izo12rj7ozuY9jhDyec_mu_KV7hHiLIkKdAGFUMrUqc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mhkhstudentsss.com
+                grade:
+                  type: string
+                  example: D
+                password:
+                  type: string
+                  example: hiell
+                phone:
+                  type: string
+                  example: "09212745709"
+            example:
+              email: mhkhstudentsss.com
+              grade: D
+              password: hiell
+              phone: "09212745709"
+      responses:
+        "200":
+          description: ""
+  /courses:
+    get:
+      summary: http://localhost:3000/courses
+      description: http://localhost:3000/courses
+      operationId: httpLocalhost3000Courses
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4Mzg3NDc0NSwiZXhwIjoxMDMyMzg3NDc0NX0.2695kLPqm7IbRBt-a48YUOMLp9p2KBMsNgPfOeZsy8w
+      responses:
+        "200":
+          description: ""
+  /admin/Professors:
+    get:
+      summary: http://localhost:3000/admin/Professors
+      description: http://localhost:3000/admin/Professors
+      operationId: httpLocalhost3000AdminProfessors
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYyOTg0MCwiZXhwIjoxMDMyMzYyOTg0MH0.jcqUtHk9fKnl96KpxQuKT1qKZkzutBbZ6Sej_qYxUl0
+      responses:
+        "200":
+          description: ""
+  /admin/Professor:
+    post:
+      summary: http://localhost:3000/admin/Professor
+      description: http://localhost:3000/admin/Professor
+      operationId: httpLocalhost3000AdminProfessor
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "'ostadhali.com'"
+                faculty:
+                  type: string
+                  example: "'riyazi'"
+                fieldOfStudy:
+                  type: string
+                  example: "'riyaziayt'"
+                firstName:
+                  type: string
+                  example: "'alittt'"
+                idNumber:
+                  type: string
+                  example: "'345534'"
+                lastName:
+                  type: string
+                  example: "'Aladdvi'"
+                password:
+                  type: string
+                  example: "'555685'"
+                phone:
+                  type: string
+                  example: "'220220220'"
+                rank:
+                  type: string
+                  example: "'highe'"
+                students:
+                  type: string
+                  example: "['98243022']"
+                teachedlessonsId:
+                  type: string
+                  example: "['645c54f8f2064e4ded358647']"
+                termlessonsId:
+                  type: string
+                  example: "['645c54fb8ee976fd5758c70b']"
+            example:
+              email: "'ostadhali.com'"
+              faculty: "'riyazi'"
+              fieldOfStudy: "'riyaziayt'"
+              firstName: "'alittt'"
+              idNumber: "'345534'"
+              lastName: "'Aladdvi'"
+              password: "'555685'"
+              phone: "'220220220'"
+              rank: "'highe'"
+              students: "['98243022']"
+              teachedlessonsId: "['645c54f8f2064e4ded358647']"
+              termlessonsId: "['645c54fb8ee976fd5758c70b']"
+      responses:
+        "200":
+          description: ""
+  /admin/Professor/{id}:
+    put:
+      summary: http://localhost:3000/admin/Professor/333
+      description: http://localhost:3000/admin/Professor/333
+      operationId: httpLocalhost3000AdminProfessor333
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYyOTg0MCwiZXhwIjoxMDMyMzYyOTg0MH0.jcqUtHk9fKnl96KpxQuKT1qKZkzutBbZ6Sej_qYxUl0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: ostadi.gmail.com
+                faculty:
+                  type: string
+                  example: Math
+                fieldOfStudy:
+                  type: string
+                  example: Mathematics
+                firstName:
+                  type: string
+                  example: asghar
+                idNumber:
+                  type: string
+                  example: "333"
+                lastName:
+                  type: string
+                  example: akbari
+                password:
+                  type: string
+                  example: "852369"
+                phone:
+                  type: string
+                  example: "09212124"
+                rank:
+                  type: string
+                  example: OstadTamam
+                students:
+                  type: string
+                  example: "98243022"
+                teachedlessonsId:
+                  type: string
+                  example: "[645c54f8f2064e4ded358647]"
+                termlessonsId:
+                  type: string
+                  example: "[645c54fb8ee976fd5758c70b]"
+            example:
+              email: ostadi.gmail.com
+              faculty: Math
+              fieldOfStudy: Mathematics
+              firstName: asghar
+              idNumber: "333"
+              lastName: akbari
+              password: "852369"
+              phone: "09212124"
+              rank: OstadTamam
+              students: "98243022"
+              teachedlessonsId: "[645c54f8f2064e4ded358647]"
+              termlessonsId: "[645c54fb8ee976fd5758c70b]"
+      responses:
+        "200":
+          description: ""
+  /admin/Professor/{_id}:
+    delete:
+      summary: http://localhost:3000/admin/Professor/645a2d7df62638a9b81a335b
+      description: http://localhost:3000/admin/Professor/645a2d7df62638a9b81a335b
+      operationId: httpLocalhost3000AdminProfessor645a2d7df62638a9b81a335b
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: { }
+            example: { }
+      responses:
+        "200":
+          description: ""
+  /admin/student:
+    post:
+      summary: http://localhost:3000/admin/student
+      description: http://localhost:3000/admin/student
+      operationId: httpLocalhost3000AdminStudent
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mhkhstudent.com
+                entranceYear:
+                  type: string
+                  example: "1398"
+                faculty:
+                  type: string
+                  example: "'EC'"
+                fieldOfStudy:
+                  type: string
+                  example: "'EC'"
+                firstName:
+                  type: string
+                  example: "'mohammad'"
+                grade:
+                  type: string
+                  example: "'C'"
+                idNumber:
+                  type: string
+                  example: "'98243022'"
+                lastName:
+                  type: string
+                  example: "'khorrami'"
+                mean:
+                  type: string
+                  example: "16"
+                ostad:
+                  type: string
+                  example: "'458'"
+                passcoures:
+                  type: string
+                  example: "['645cd865600eb965bd5709f0']"
+                password:
+                  type: string
+                  example: "'hiel'"
+                phone:
+                  type: string
+                  example: "0921274508"
+            example:
+              email: mhkhstudent.com
+              entranceYear: "1398"
+              faculty: "'EC'"
+              fieldOfStudy: "'EC'"
+              firstName: "'mohammad'"
+              grade: "'C'"
+              idNumber: "'98243022'"
+              lastName: "'khorrami'"
+              mean: "16"
+              ostad: "'458'"
+              passcoures: "['645cd865600eb965bd5709f0']"
+              password: "'hiel'"
+              phone: "0921274508"
+      responses:
+        "200":
+          description: ""
+  /admin/student/{id}:
+    get:
+      summary: http://localhost:3000/admin/student/98243022
+      description: http://localhost:3000/admin/student/98243022
+      operationId: httpLocalhost3000AdminStudent98243022
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      responses:
+        "200":
+          description: ""
+    put:
+      summary: http://localhost:3000/admin/student/5
+      description: http://localhost:3000/admin/student/5
+      operationId: httpLocalhost3000AdminStudent5
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: khodamstudent.com
+                entranceYear:
+                  type: string
+                  example: "1398"
+                faculty:
+                  type: string
+                  example: Math
+                fieldOfStudy:
+                  type: string
+                  example: ProMath
+                firstName:
+                  type: string
+                  example: mohammad
+                grade:
+                  type: string
+                  example: S
+                idNumber:
+                  type: string
+                  example: "98243022"
+                lastName:
+                  type: string
+                  example: soufiyani
+                mean:
+                  type: string
+                  example: "17"
+                ostad:
+                  type: string
+                  example: "'458'"
+                passcoures:
+                  type: string
+                  example: "['645cd865600eb965bd5709f0']"
+                password:
+                  type: string
+                  example: "98765423"
+                phone:
+                  type: string
+                  example: "220260260"
+            example:
+              email: khodamstudent.com
+              entranceYear: "1398"
+              faculty: Math
+              fieldOfStudy: ProMath
+              firstName: mohammad
+              grade: S
+              idNumber: "98243022"
+              lastName: soufiyani
+              mean: "17"
+              ostad: "'458'"
+              passcoures: "['645cd865600eb965bd5709f0']"
+              password: "98765423"
+              phone: "220260260"
+      responses:
+        "200":
+          description: ""
+  /admin/student/{_id}:
+    delete:
+      summary: http://localhost:3000/admin/student/644bd6e6decdaa352545f062
+      description: http://localhost:3000/admin/student/644bd6e6decdaa352545f062
+      operationId: httpLocalhost3000AdminStudent644bd6e6decdaa352545f062
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      responses:
+        "200":
+          description: ""
+  /admin/manager/{id}:
+    get:
+      summary: http://localhost:3000/admin/manager/365
+      description: http://localhost:3000/admin/manager/365
+      operationId: httpLocalhost3000AdminManager365
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzNzQxOSwiZXhwIjoxMDMyMzYzNzQxOX0.7ytErYjF5CJgHN49gwicDo1WvSmcHnwRrBdBLCMgMZc
+      responses:
+        "200":
+          description: ""
+    put:
+      summary: http://localhost:3000/admin/manager/365
+      description: http://localhost:3000/admin/manager/365
+      operationId: httpLocalhost3000AdminManager3651
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: modireAmuzeshhalabaham.com
+                faculty:
+                  type: string
+                  example: Math
+                firstName:
+                  type: string
+                  example: farzani
+                idNumber:
+                  type: string
+                  example: "365"
+                lastName:
+                  type: string
+                  example: alavian
+                password:
+                  type: string
+                  example: "1234"
+                phone:
+                  type: string
+                  example: "569874"
+            example:
+              email: modireAmuzeshhalabaham.com
+              faculty: Math
+              firstName: farzani
+              idNumber: "365"
+              lastName: alavian
+              password: "1234"
+              phone: "569874"
+      responses:
+        "200":
+          description: ""
+  /course:
+    post:
+      summary: http://localhost:3000/course
+      description: http://localhost:3000/course
+      operationId: httpLocalhost3000Course
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                faculty:
+                  type: string
+                  example: CE
+                ham:
+                  type: string
+                  example: ml
+                name:
+                  type: string
+                  example: dataMining
+                pre:
+                  type: string
+                  example: Amar
+                released:
+                  type: string
+                  example: YES
+                vahed:
+                  type: string
+                  example: "3"
+            example:
+              faculty: CE
+              ham: ml
+              name: dataMining
+              pre: Amar
+              released: YES
+              vahed: "3"
+      responses:
+        "200":
+          description: ""
+  /course/{_id}:
+    get:
+      summary: http://localhost:3000/course/645c54fb8ee976fd5758c70b
+      description: http://localhost:3000/course/645c54fb8ee976fd5758c70b
+      operationId: httpLocalhost3000Course645c54fb8ee976fd5758c70b1
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc
+      responses:
+        "200":
+          description: ""
+    put:
+      summary: http://localhost:3000/course/645c54fb8ee976fd5758c70b
+      description: http://localhost:3000/course/645c54fb8ee976fd5758c70b
+      operationId: httpLocalhost3000Course645c54fb8ee976fd5758c70b
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                capacity:
+                  type: string
+                  example: ""
+                exam_place:
+                  type: string
+                  example: ""
+                exam_time:
+                  type: string
+                  example: ""
+                faculty:
+                  type: string
+                  example: ""
+                ham:
+                  type: string
+                  example: ""
+                name:
+                  type: string
+                  example: ""
+                ostad:
+                  type: string
+                  example: ""
+                pre:
+                  type: string
+                  example: ""
+                released:
+                  type: string
+                  example: ""
+                term:
+                  type: string
+                  example: "7"
+                time_class:
+                  type: string
+                  example: ""
+                vahed:
+                  type: string
+                  example: ""
+            example:
+              capacity: ""
+              exam_place: ""
+              exam_time: ""
+              faculty: ""
+              ham: ""
+              name: ""
+              ostad: ""
+              pre: ""
+              released: ""
+              term: "7"
+              time_class: ""
+              vahed: ""
+      responses:
+        "200":
+          description: ""
+    delete:
+      summary: http://localhost:3000/course/645cd9764fcaebed5f2ab00c
+      description: http://localhost:3000/course/645cd9764fcaebed5f2ab00c
+      operationId: httpLocalhost3000Course645cd9764fcaebed5f2ab00c
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNzc3MCwiZXhwIjoxMDMyMzgwNzc3MH0.mgOV0-wVRlNDC0LkQ7M_u6BmpgnqFwoxLX5ZvLbM7cY
+      responses:
+        "200":
+          description: ""
+  /Professor/{id}:
+    get:
+      summary: http://localhost:3000/Professor/333
+      description: http://localhost:3000/Professor/333
+      operationId: httpLocalhost3000Professor333
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3NWYzNjI1MGQ1MDM0OTk1MmI4MCIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgxMTUwNiwiZXhwIjoxMDMyMzgxMTUwNn0.Y0vrM9plHfz4rHUVP6D42Hn8BR5GxhNM6gcbLw8S8Xo
+      responses:
+        "200":
+          description: ""
+  /Professor/{_id}:
+    get:
+      summary: New Request
+      description: New Request
+      operationId: newRequest1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      responses:
+        "200":
+          description: ""
+    put:
+      summary: http://localhost:3000/Professor/644bd9af7407e00e49923222
+      description: http://localhost:3000/Professor/644bd9af7407e00e49923222
+      operationId: httpLocalhost3000Professor644bd9af7407e00e49923222
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4MzkwMDMzNSwiZXhwIjoxMDMyMzkwMDMzNX0.1xcwi35YXKi_ooqV1QmiqSq-tJ3_bp9G7CcziS89Ork
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: akbariostad.com
+                password:
+                  type: string
+                  example: "5422"
+                phone:
+                  type: string
+                  example: "09212745709"
+                rank:
+                  type: string
+                  example: higher
+            example:
+              email: akbariostad.com
+              password: "5422"
+              phone: "09212745709"
+              rank: higher
+      responses:
+        "200":
+          description: ""
+#  /admin/Professor/{id}:
+
+  /admin/students:
+    get:
+      summary: http://localhost:3000/admin/students
+      description: http://localhost:3000/admin/students
+      operationId: httpLocalhost3000AdminStudents
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      responses:
+        "200":
+          description: ""
+#  /admin/student/{id}:
+
+  /admin/manager:
+    post:
+      summary: http://localhost:3000/admin/manager
+      description: http://localhost:3000/admin/manager
+      operationId: httpLocalhost3000AdminManager
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: modiremodireAmuzeshSS.com
+                faculty:
+                  type: string
+                  example: EC
+                firstName:
+                  type: string
+                  example: gholam
+                idNumber:
+                  type: string
+                  example: "5689"
+                lastName:
+                  type: string
+                  example: farrokhi
+                password:
+                  type: string
+                  example: "555565"
+                phone:
+                  type: string
+                  example: "58965845"
+            example:
+              email: modiremodireAmuzeshSS.com
+              faculty: EC
+              firstName: gholam
+              idNumber: "5689"
+              lastName: farrokhi
+              password: "555565"
+              phone: "58965845"
+      responses:
+        "200":
+          description: ""
+  /admin/manager/{_id}:
+    delete:
+      summary: http://localhost:3000/admin/manager/645c75f36250d50349952b80
+      description: http://localhost:3000/admin/manager/645c75f36250d50349952b80
+      operationId: httpLocalhost3000AdminManager645c75f36250d50349952b80
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      responses:
+        "200":
+          description: ""
+  /admin/managers:
+    get:
+      summary: http://localhost:3000/admin/managers
+      description: http://localhost:3000/admin/managers
+      operationId: httpLocalhost3000AdminManagers
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGNmMTJkNjlkZDY2ZjcxZTkzOTM2MCIsInJvbGVfaWQiOjAsImlhdCI6MTY4MzYzMTQ2OCwiZXhwIjoxMDMyMzYzMTQ2OH0.RmUBs0xXFRC6azFlukHtspDRwqHME1Pz0LrsNc9I9II
+      responses:
+        "200":
+          description: ""
+#  /course/{_id}:
+
+  /students:
+    get:
+      summary: http://localhost:3000/students
+      description: http://localhost:3000/students
+      operationId: httpLocalhost3000Students
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc
+      responses:
+        "200":
+          description: ""
+  /student/{id}:
+    get:
+      summary: http://localhost:3000/student/98243022
+      description: http://localhost:3000/student/98243022
+      operationId: httpLocalhost3000Student982430221
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc
+      responses:
+        "200":
+          description: ""
+  /Professors:
+    get:
+      summary: http://localhost:3000/Professors
+      description: http://localhost:3000/Professors
+      operationId: httpLocalhost3000Professors
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4Mzg5Nzk3MywiZXhwIjoxMDMyMzg5Nzk3M30.I2ff9wJQXNAuNK0xfnxep9JxCieSXJaX17Q355MnAqc
+      responses:
+        "200":
+          description: ""
+  /term:
+    post:
+      summary: http://localhost:3000/term
+      description: http://localhost:3000/term
+      operationId: httpLocalhost3000Term
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                faculty:
+                  type: string
+                  example: Math
+                idNumber:
+                  type: string
+                  example: "0203"
+                isNow:
+                  type: string
+                  example: "true"
+                name:
+                  type: string
+                  example: 1402-1403
+                preregis:
+                  type: string
+                  example: 645c54fb8ee976fd5758c70b
+                termis:
+                  type: string
+                  example: 645c54fb8ee976fd5758c70b
+            example:
+              faculty: Math
+              idNumber: "0203"
+              isNow: "true"
+              name: 1402-1403
+              preregis: 645c54fb8ee976fd5758c70b
+              termis: 645c54fb8ee976fd5758c70b
+      responses:
+        "200":
+          description: ""
+  /terms:
+    get:
+      summary: http://localhost:3000/terms
+      description: http://localhost:3000/terms
+      operationId: httpLocalhost3000Terms
+      parameters:
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4ODA0NTAzMywiZXhwIjoxMDMyODA0NTAzM30.TCmdw_2PPUenhsLLjQYQfWkPttYs4ern473LE0zXCC4
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: { }
+            example: { }
+      responses:
+        "200":
+          description: ""
+  /term/{_id}:
+    delete:
+      summary: http://localhost:3000/term/649d27136b1d826784ee37a0
+      description: http://localhost:3000/term/649d27136b1d826784ee37a0
+      operationId: httpLocalhost3000Term649d27136b1d826784ee37a0
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      responses:
+        "200":
+          description: ""
+    put:
+      summary: http://localhost:3000/term/649d25c8d829947e5da124b0
+      description: http://localhost:3000/term/649d25c8d829947e5da124b0
+      operationId: httpLocalhost3000Term649d25c8d829947e5da124b0
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                termis:
+                  type: string
+                  example: "null"
+            example:
+              termis: "null"
+      responses:
+        "200":
+          description: ""
+    get:
+      summary: http://localhost:3000/term/649d22e9d829947e5da12492
+      description: http://localhost:3000/term/649d22e9d829947e5da12492
+      operationId: httpLocalhost3000Term649d22e9d829947e5da12492
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+#  /term/{_id}:
+
+#  /term/{_id}:
+
+  /term/{_id}/preregistration:
+    post:
+      summary: http://localhost:3000/term/645cd865600eb965bd5709f0/preregistration
+      description: http://localhost:3000/term/645cd865600eb965bd5709f0/preregistration
+      operationId: httpLocalhost3000Term645cd865600eb965bd5709f0Preregistration
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: { }
+            example: { }
+      responses:
+        "200":
+          description: ""
+    delete:
+      summary: http://localhost:3000/term/645cd865600eb965bd5709f0/preregistration
+      description: http://localhost:3000/term/645cd865600eb965bd5709f0/preregistration
+      operationId: httpLocalhost3000Term645cd865600eb965bd5709f0Preregistration1
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      responses:
+        "200":
+          description: ""
+  /term/{_id}/preregistration_courses:
+    get:
+      summary: http://localhost:3000/term/649d25c8d829947e5da124b0/preregistration_courses
+      description: http://localhost:3000/term/649d25c8d829947e5da124b0/preregistration_courses
+      operationId: httpLocalhost3000Term649d25c8d829947e5da124b0PreregistrationCourses1
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+  /term/{_id}/registration:
+    delete:
+      summary: http://localhost:3000/term/645cd865600eb965bd5709f0/registration
+      description: http://localhost:3000/term/645cd865600eb965bd5709f0/registration
+      operationId: httpLocalhost3000Term645cd865600eb965bd5709f0Registration
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      responses:
+        "200":
+          description: ""
+    post:
+      summary: http://localhost:3000/term/649d34d33bc68af7947fc0d3/registration
+      description: http://localhost:3000/term/649d34d33bc68af7947fc0d3/registration
+      operationId: httpLocalhost3000Term649d34d33bc68af7947fc0d3Registration
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: { }
+            example: { }
+      responses:
+        "200":
+          description: ""
+  /term/{_id}/registration_courses:
+    get:
+      summary: http://localhost:3000/term/649d25c8d829947e5da124b0/registration_courses
+      description: http://localhost:3000/term/649d25c8d829947e5da124b0/registration_courses
+      operationId: httpLocalhost3000Term649d25c8d829947e5da124b0RegistrationCourses
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+#  /term/{_id}/registration:
+
+  /term/{_id}/preregistrations:
+    get:
+      summary: http://localhost:3000/term/649d25c8d829947e5da124b0/preregistrations
+      description: http://localhost:3000/term/649d25c8d829947e5da124b0/preregistrations
+      operationId: httpLocalhost3000Term649d25c8d829947e5da124b0Preregistrations1
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+  /course/preregister/{_id}:
+    post:
+      summary: http://localhost:3000/course/preregister/645c54fb8ee976fd5758c70b
+      description: http://localhost:3000/course/preregister/645c54fb8ee976fd5758c70b
+      operationId: httpLocalhost3000CoursePreregister645c54fb8ee976fd5758c70b
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzMjY4MiwiZXhwIjoxMDMyODAzMjY4Mn0.OpIPDmmNkdBONmK5sC5-sOLr4UBF8Zjlb_MP_Df8ZQc
+      responses:
+        "200":
+          description: ""
+    delete:
+      summary: http://localhost:3000/course/preregister/645c54fb8ee976fd5758c70b
+      description: http://localhost:3000/course/preregister/645c54fb8ee976fd5758c70b
+      operationId: httpLocalhost3000CoursePreregister645c54fb8ee976fd5758c70b1
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+  /course/{_id}/preregistrations:
+    get:
+      summary: http://localhost:3000/course/645c54fb8ee976fd5758c70b/preregistrations
+      description: http://localhost:3000/course/645c54fb8ee976fd5758c70b/preregistrations
+      operationId: httpLocalhost3000Course645c54fb8ee976fd5758c70bPreregistrations
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWM3MjBjNzg0ZTliOWI2ZGFkYzY0ZiIsInJvbGVfaWQiOjEsImlhdCI6MTY4MzgwNjA4OSwiZXhwIjoxMDMyMzgwNjA4OX0.n683rvhaNX7-kiGl1QE3eIxjIv9G-_WO2s0tKcOU8Ik
+      responses:
+        "200":
+          description: ""
+  /course/register/{_id}:
+    post:
+      summary: http://localhost:3000/course/register/649d34d33bc68af7947fc0d3
+      description: http://localhost:3000/course/register/649d34d33bc68af7947fc0d3
+      operationId: httpLocalhost3000CourseRegister649d34d33bc68af7947fc0d3
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzMjY4MiwiZXhwIjoxMDMyODAzMjY4Mn0.OpIPDmmNkdBONmK5sC5-sOLr4UBF8Zjlb_MP_Df8ZQc
+      responses:
+        "200":
+          description: ""
+    delete:
+      summary: http://localhost:3000/course/register/649d34d33bc68af7947fc0d3
+      description: http://localhost:3000/course/register/649d34d33bc68af7947fc0d3
+      operationId: httpLocalhost3000CourseRegister649d34d33bc68af7947fc0d31
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE0MzJjYWZiNjU3NTZiMGI0OTcwNCIsInJvbGVfaWQiOjIsImlhdCI6MTY4ODAzNzUyMSwiZXhwIjoxMDMyODAzNzUyMX0.AFf0RF1V9XpWLA1Hc3c3Ab1BiAd12bOdkYfqsPFicNY
+      responses:
+        "200":
+          description: ""
+  /registration/{_id}:
+    put:
+      summary: http://localhost:3000/registration/645a432cafb65756b0b49704
+      description: http://localhost:3000/registration/645a432cafb65756b0b49704
+      operationId: httpLocalhost3000Registration645a432cafb65756b0b49704
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4ODA0NTAzMywiZXhwIjoxMDMyODA0NTAzM30.TCmdw_2PPUenhsLLjQYQfWkPttYs4ern473LE0zXCC4
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                isApprovedFromModirAmuzesh:
+                  type: string
+                  example: "true"
+            example:
+              isApprovedFromModirAmuzesh: "true"
+      responses:
+        "200":
+          description: ""
+  /term/{_id}/registrations:
+    get:
+      summary: http://localhost:3000/term/649d25c8d829947e5da124b0/registrations
+      description: http://localhost:3000/term/649d25c8d829947e5da124b0/registrations
+      operationId: httpLocalhost3000Term649d25c8d829947e5da124b0Registrations
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4ODA0NTAzMywiZXhwIjoxMDMyODA0NTAzM30.TCmdw_2PPUenhsLLjQYQfWkPttYs4ern473LE0zXCC4
+      responses:
+        "200":
+          description: ""
+  /course/{_id}/registrations:
+    get:
+      summary: http://localhost:3000/course/649d34d33bc68af7947fc0d3/registrations
+      description: http://localhost:3000/course/649d34d33bc68af7947fc0d3/registrations
+      parameters:
+        - name: _id
+          in: path
+          required: true
+          description: "The identifier of the element to retrieve."
+        - name: test
+          in: header
+          schema:
+            type: string
+            example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGJkNzg4MjA0OGE5MWIyN2ZlYmVmYiIsInJvbGVfaWQiOjMsImlhdCI6MTY4ODA0NTAzMywiZXhwIjoxMDMyODA0NTAzM30.TCmdw_2PPUenhsLLjQYQfWkPttYs4ern473LE0zXCC4
+      responses:
+        "200":
+          description: ""
+tags: [ ]

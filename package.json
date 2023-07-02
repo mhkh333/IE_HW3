@@ -20,6 +20,7 @@
     "nodemon": "^2.0.22",
     "postman2openapi": "^1.0.0",
     "swagger-ui-express": "^4.6.3",
+    "yaml": "^2.3.1",
     "yamljs": "^0.3.0"
   }
 }

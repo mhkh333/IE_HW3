@@ -4,24 +4,36 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const {verifyToken, generateToken} = require('./config/auth');
+const YAML2 = require('yaml')
 
 const dbConfig = require('./config/db.config.js');
 const {StudentModel} = require("./models/student.js");
 const {OstadModel, ModirITModel, MosavvabModel, TermiModel} = require("./models/student");
 
 const collection = require('./collection/tamrin2_ie.postman_collection.json');
+const collectionV2 = require('./collection/tamrin2_ie.postman_collectionV2.json');
 const {transpile} = require('postman2openapi');
+
+const obj2 = require('./newYamlV2.json');
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./openapi (1).yaml');
+// const swaggerDocument = YAML.load('./openapi (1).yaml');
+const swaggerDocument = YAML.load('./openapi_(2).yaml');
 
 var cors = require('cors')
 
 
 const openapi = transpile(collection);
+const openapiV2 = transpile(collectionV2);
+// console.log(6555555588888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888)
+// console.log(JSON.stringify(openapiV2, null, 2));
+// console.log(obj2)
+const doc = new YAML2.Document();
+doc.contents = obj2;
+// console.log(doc.toString())
 
-//console.log(JSON.stringify(openapi, null, 2));
+const jsonObject = JSON.stringify(openapiV2, null, 2);
 
 const app = express();
 

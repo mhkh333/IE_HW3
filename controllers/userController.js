@@ -620,25 +620,29 @@ exports.postPreRegistration = async (req, res) => {
             try {
 
                 const coursesTerm = await TermiModel.findOne({_id: id});
-                console.log(123)
                 const currTerm = await TermModel.findOne({isNow: true, faculty: req.faculty});
-                console.log(123)
-                const termis = currTerm.preregis;
-                console.log(123)
-                const index = termis.indexOf(id);
+
                 if (!coursesTerm) {
-                    return res.status(404).json({message: `this course is alredy at the list of termi course: ${id}`});
+                    return res.status(404).json({message: `this course is not defined at term: ${id}`});
+                } else {
+                    const termis = currTerm.preregis;
+                    const index = termis.indexOf(id);
+                    if (!currTerm) {
+                        return res.status(404).json({message: 'No current term found.'});
+                    } else {
+                        if (index > 0) {
+                            return res.status(404).json({message: `this course `});
+                        } else {
+                            termis.push(id);
+                            currTerm.termis = termis;
+                            await currTerm.save();
+                            return res.status(200).json({message: `course added to the Termi course: ${id}`});
+                        }
+
+                    }
+
                 }
-                if (!currTerm) {
-                    return res.status(404).json({message: 'No current term found.'});
-                }
-                if (index > 0) {
-                    return res.status(404).json({message: `this course is alredy at the list of termi course: ${termis[index].name}`});
-                }
-                termis.push(id);
-                currTerm.termis = termis;
-                await currTerm.save();
-                return res.status(200).json({message: `course added to the Termi course: ${id}`});
+
             } catch (error) {
                 // If an error occurred during the deletion process, return an error message
                 return res.status(500).json({message: 'An error occurred while posting the document.', error});
@@ -982,20 +986,25 @@ exports.deletepreregistration = async (req, res) => {
 
             try {
                 let currTerm = await TermModel.findOne({isNow: true, faculty: req.faculty});
-                let termis = currTerm.preregis;
-                const index = termis.indexOf(id);
-                console.log(index)
+
                 if (!currTerm) {
                     return res.status(404).json({message: 'No current term found.'});
+                } else {
+                    let termis = currTerm.preregis;
+                    const index = termis.indexOf(id);
+                    console.log(index)
+                    if (index < 0) {
+                        return res.status(404).json({message: 'No termis course in current term found with that ID.'});
+                    } else {
+                        const nameofcours = termis[index];
+                        termis.splice(index, 1);//delete the index
+                        currTerm.preregis = termis;
+                        await currTerm.save();
+                        return res.status(200).json({message: `Document deleted successfully. Term: ${nameofcours}`});
+                    }
                 }
-                if (index < 0) {
-                    return res.status(404).json({message: 'No termis course in current term found with that ID.'});
-                }
-                const nameofcours = termis[index];
-                termis.splice(index, 1);//delete the index
-                currTerm.preregis = termis;
-                await currTerm.save();
-                return res.status(200).json({message: `Document deleted successfully. Term: ${nameofcours}`});
+
+
             } catch (error) {
                 // If an error occurred during the deletion process, return an error message
                 return res.status(500).json({message: 'An error occurred while deleting the document.', error});
@@ -1101,19 +1110,24 @@ exports.deleteregistration = async (req, res) => {
 
             try {
                 const currTerm = await TermModel.findOne({isNow: true, faculty: req.faculty});
-                let termis = currTerm.termis;
-                let index = termis.indexOf(id);
+
                 if (!currTerm) {
                     return res.status(404).json({message: 'No current term found.'});
+                } else {
+                    let termis = currTerm.termis;
+                    let index = termis.indexOf(id);
+                    if (index < 0) {
+                        return res.status(404).json({message: 'No termis course in current term found with that ID.'});
+                    } else {
+                        const nameofcours = termis[index];
+                        termis.splice(index, 1);//delete the index
+                        currTerm.preregis = termis;
+                        await currTerm.save();
+                        return res.status(200).json({message: `Document deleted successfully. Term: ${nameofcours}`});
+                    }
+
                 }
-                if (index < 0) {
-                    return res.status(404).json({message: 'No termis course in current term found with that ID.'});
-                }
-                const nameofcours = termis[index];
-                termis.splice(index, 1);//delete the index
-                currTerm.preregis = termis;
-                await currTerm.save();
-                return res.status(200).json({message: `Document deleted successfully. Term: ${nameofcours}`});
+
             } catch (error) {
                 // If an error occurred during the deletion process, return an error message
                 return res.status(500).json({message: 'An error occurred while deleting the document.', error});

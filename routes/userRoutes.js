@@ -100,12 +100,11 @@ router.delete('/admin/Professor/:id', [authJwt.verifyToken, authJwt.isAdmin], us
 router.delete('/admin/student/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.deleteAdminStudent);
 router.delete('/admin/manager/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.deleteAdminManager);
 
-
 //modire amuzesh && student and even Ostad
 router.get('/courses', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCourses);
 router.get('/course/:id', [authJwt.verifyToken, authJwt.isStuORMod], userController.getCourseId);
 
-router.get('/students', [authJwt.verifyToken, authJwt.isAmuz], userController.getStudents);
+router.get('/students', [authJwt.verifyToken, authJwt.isStuORMod], userController.getStudents);
 router.get('/student/:id', [authJwt.verifyToken, authJwt.isAmuz], userController.getStudentID);
 router.get('/Professors', [authJwt.verifyToken, authJwt.isAmuz], userController.getAdminProfessors);
 router.get('/Professor/:id', [authJwt.verifyToken, authJwt.isAmuz], userController.getProfID);
@@ -118,7 +117,6 @@ router.get('/course/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod
 router.get('/term/:id/registrations', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermReg);
 
 router.get('/term/:id/registration/:idCourse', [authJwt.verifyToken, authJwt.isStuORMod], userController.getTermRegCourse);
-
 
 
 router.post('/course', [authJwt.verifyToken, authJwt.isStuORMod], userController.postCourse);
